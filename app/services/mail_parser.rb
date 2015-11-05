@@ -5,13 +5,13 @@ class MailParser
     gmail = Gmail.new(user, pass)
     puts gmail.inbox.emails(:unread).first
     gmail.inbox.emails(:unread).each do |email|
-      send(email, url)
+      send_ticket(email, url)
       email.mark(:read)
     end
     gmail.logout
   end
 
-  def send(data, url)
+  def send_ticket(data, url)
     puts data
     puts data.to_json
     url = URI.parse(url)
