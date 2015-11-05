@@ -11,7 +11,7 @@ class MailParser
     gmail.logout
   end
 
-  def send_ticket(data, url)
+  def self.send_ticket(data, url)
     puts data
     puts data.to_json
     url = URI.parse(url)
