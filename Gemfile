@@ -7,8 +7,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 
-gem 'mail_room'
-gem 'faraday'
+# gem 'mail_room'
+# gem 'faraday'
+gem 'ruby-gmail'
 
 group :development, :test do
   gem 'pry-rails'
