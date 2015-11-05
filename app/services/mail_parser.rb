@@ -3,6 +3,8 @@ class MailParser
 
   def self.parse_emails(user, pass, url)
     gmail = Gmail.new(user, pass)
+    puts gmail.inbox.count
+    puts gmail.inbox
     gmail.inbox.where(read: false).each do |message|
       send(message, url)
     end
