@@ -9,4 +9,11 @@
     :delivery_options:
       :delivery_url: "http://swos-helpdesk.herokuapp.com/tickets.json"
       :delivery_token: "abcdefg"
+  -
+    :email: "testmailtommy7@gmail.com"
+    :password: "lolopolo123"
+    :name: "inbox"
+    :delivery_method: logger
+    :delivery_options:
+      :log_path: "/log/email.log"
 
