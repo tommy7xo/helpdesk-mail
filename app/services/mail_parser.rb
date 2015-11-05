@@ -3,8 +3,6 @@ class MailParser
 
   def self.parse_emails(user, pass, url)
     gmail = Gmail.new(user, pass)
-    puts gmail.inbox.count(:unread)
-    puts gmail.inbox.emails(:unread)
     puts gmail.inbox.emails(:unread).first
     gmail.inbox.emails(:unread).each do |email|
       send(email, url)
@@ -14,6 +12,8 @@ class MailParser
   end
 
   def send(data, url)
+    puts data
+    puts data.to_json
     url = URI.parse(url)
     http = Net::HTTP.new(url.host, url.port)
     #http.use_ssl = true
