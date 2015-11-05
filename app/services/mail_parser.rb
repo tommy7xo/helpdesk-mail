@@ -4,9 +4,10 @@ class MailParser
   def self.parse_emails(user, pass, url)
     gmail = Gmail.new(user, pass)
     puts gmail.inbox.count
-    puts gmail.inbox
-    gmail.inbox.where(read: false).each do |message|
+    puts gmail.inbox.count(:unread)
+    gmail.inbox.emails(:unread).each do |message|
       send(message, url)
+      message.mark(:read)
     end
     gmail.logout
   end
