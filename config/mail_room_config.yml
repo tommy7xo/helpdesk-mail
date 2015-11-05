@@ -1,0 +1,12 @@
+---
+:mailboxes:
+  -
+    :email: "testmailtommy7@gmail.com"
+    :password: "lolopolo123"
+    :name: "inbox"
+    :search_command: 'NEW'
+    :delivery_method: postback
+    :delivery_options:
+      :delivery_url: "http://swos-helpdesk.herokuapp.com/tickets.json"
+      :delivery_token: "abcdefg"
+
