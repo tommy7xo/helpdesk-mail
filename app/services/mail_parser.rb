@@ -1,5 +1,5 @@
 require 'gmail'
-class Mail
+class MailParser
 
   def self.parse_emails(user, pass, url)
     gmail = Gmail.new(user, pass)
