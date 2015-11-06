@@ -7,10 +7,12 @@ class MailParser
     Gmail.new(user, pass) do |gmail|
       gmail.inbox.emails(:unread).each do |email|
         from = email.message.from.to_s
-        s[0] = ''
-        s[0] = ''
-        s[-1] = ''
-        s[-1] = ''
+        # delete some shit from email
+        from[0] = ''
+        from[0] = ''
+        from[-1] = ''
+        from[-1] = ''
+
         ticket = {
           ticket: {
             from:     from,
