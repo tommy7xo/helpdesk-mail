@@ -7,11 +7,12 @@ class MailParser
     Gmail.new(user, pass) do |gmail|
       gmail.inbox.emails(:unread).each do |email|
         ticket = {
-          from:     email.message.from,
-          subject:  email.message.subject,
-          content:  email.message.body
+          ticket: {
+            from:     email.message.from.to_s,
+            subject:  email.message.subject.to_s,
+            content:  email.message.body.to_s
+          }
         }
-        puts ticket
         puts ticket.to_json
         url = URI.parse(uri)
         # http = Net::HTTP.new(url.host, url.port)
@@ -25,3 +26,6 @@ class MailParser
     end
   end
 end
+
+
+# MailParser.parse_emails("testmailtommy7@gmail.com", "lolopolo123", "http://swos-helpdesk.herokuapp.com/tickets")
