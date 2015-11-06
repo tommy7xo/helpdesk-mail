@@ -13,19 +13,14 @@ class MailParser
             content:  email.message.body.to_s
           }
         }
-        puts ticket.to_json
         url = URI.parse(uri)
-        # http = Net::HTTP.new(url.host, url.port)
-        # request = Net::HTTP::Post.new(url, {'Content-Type' =>'application/json'})
-        # request.body = email.to_json
-        # http.request(request)
+        http = Net::HTTP.new(url.host, url.port)
+        request = Net::HTTP::Post.new(url, {'Content-Type' => 'application/json'})
+        request.body = ticket.to_json
+        http.request(request)
 
-
-        #email.mark(:read)
+        email.mark(:read)
       end
     end
   end
 end
-
-
-# MailParser.parse_emails("testmailtommy7@gmail.com", "lolopolo123", "http://swos-helpdesk.herokuapp.com/tickets")
