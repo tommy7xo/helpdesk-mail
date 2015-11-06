@@ -16,6 +16,7 @@ class MailParser
         url = URI.parse(uri)
         http = Net::HTTP.new(url.host, url.port)
         request = Net::HTTP::Post.new(url, {'Content-Type' => 'application/json'})
+        rerequestq.content_type = 'application/json'
         request.body = ticket.to_json
         http.request(request)
 
