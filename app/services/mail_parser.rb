@@ -11,6 +11,7 @@ class MailParser
           subject:  email.message.subject,
           content:  email.message.body
         }
+        puts ticket
         puts ticket.to_json
         url = URI.parse(uri)
         # http = Net::HTTP.new(url.host, url.port)
