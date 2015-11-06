@@ -18,7 +18,7 @@ class MailParser
         request = Net::HTTP::Post.new(url, {'Content-Type' => 'application/json'})
         request.body = ticket.to_json
         response = http.request(request)
-        puts response
+        puts JSON.parse(response.body)
 
         email.mark(:read)
       end
