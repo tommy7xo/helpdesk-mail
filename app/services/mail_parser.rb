@@ -10,7 +10,7 @@ class MailParser
           ticket: {
             from:     from_format( email.message.from.to_s ),
             subject:  email.message.subject.to_s,
-            content:  email.message.body.to_s
+            content:  email.message.html_part.body.to_s
           }
         }
         request(ticket, uri)
@@ -33,3 +33,4 @@ class MailParser
     return email
   end
 end
+
