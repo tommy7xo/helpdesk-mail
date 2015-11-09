@@ -8,7 +8,7 @@ class MailParser
       gmail.inbox.emails(:unread).each do |email|
         ticket = {
           ticket: {
-            from:     mail_format( email.message.from.to_s ),
+            from:     from_format( email.message.from.to_s ),
             subject:  email.message.subject.to_s,
             content:  email.message.body.to_s
           }
@@ -27,8 +27,9 @@ class MailParser
     http.request(request)
   end
 
-  def self.mail_format(string)
-    string[0..1] = ''
-    string[-2..-1] = ''
+  def self.from_format(email)
+    email[0..1] = ''
+    email[-2..-1] = ''
+    return email
   end
 end
