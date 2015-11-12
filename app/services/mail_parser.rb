@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 require 'gmail'
 require 'net/http'
 require 'json'
