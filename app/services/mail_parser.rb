@@ -10,9 +10,9 @@ class MailParser
       gmail.inbox.emails(:unread).each do |email|
         ticket = {
           ticket: {
-            from:     from_format( email.message.from.to_s ),
-            subject:  email.message.subject.to_s,
-            content:  email.message.html_part.body.to_s
+            from:     from_format(email.message.from.to_s).force_encoding('UTF-16'),
+            subject:  email.message.subject.to_s.force_encoding('UTF-16'),
+            content:  email.message.html_part.body.to_s.force_encoding('UTF-16')
           }
         }
         request(ticket, uri)
